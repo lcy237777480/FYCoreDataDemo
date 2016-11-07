@@ -17,6 +17,8 @@
 		A849DB731DD0DF0F0073652F /* People+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A849DB711DD0DF0F0073652F /* People+CoreDataProperties.m */; };
 		A849DB761DD0DFA60073652F /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A849DB751DD0DFA60073652F /* DBManager.m */; };
 		A849DB791DD0E1A70073652F /* UIAlertController+Actions.m in Sources */ = {isa = PBXBuildFile; fileRef = A849DB781DD0E1A70073652F /* UIAlertController+Actions.m */; };
+		A849DB7B1DD0E3F80073652F /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A849DB7A1DD0E3F80073652F /* DetailViewController.xib */; };
+		A849DB7E1DD0E42F0073652F /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A849DB7D1DD0E42F0073652F /* DetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +41,9 @@
 		A849DB751DD0DFA60073652F /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
 		A849DB771DD0E1A70073652F /* UIAlertController+Actions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+Actions.h"; sourceTree = "<group>"; };
 		A849DB781DD0E1A70073652F /* UIAlertController+Actions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+Actions.m"; sourceTree = "<group>"; };
+		A849DB7A1DD0E3F80073652F /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
+		A849DB7C1DD0E42F0073652F /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		A849DB7D1DD0E42F0073652F /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,11 +81,12 @@
 				A849DB6B1DD0DE560073652F /* Student.xcdatamodeld */,
 				A849DB581DD0DA8F0073652F /* ViewController.h */,
 				A849DB591DD0DA8F0073652F /* ViewController.m */,
+				A849DB6A1DD0DD9C0073652F /* DataModel */,
+				A849DB7F1DD0E4360073652F /* 详情 */,
 				A849DB771DD0E1A70073652F /* UIAlertController+Actions.h */,
 				A849DB781DD0E1A70073652F /* UIAlertController+Actions.m */,
 				A849DB741DD0DFA60073652F /* DBManager.h */,
 				A849DB751DD0DFA60073652F /* DBManager.m */,
-				A849DB6A1DD0DD9C0073652F /* DataModel */,
 				A849DB5B1DD0DA8F0073652F /* Main.storyboard */,
 				A849DB5E1DD0DA8F0073652F /* Assets.xcassets */,
 				A849DB601DD0DA8F0073652F /* LaunchScreen.storyboard */,
@@ -107,6 +113,16 @@
 				A849DB711DD0DF0F0073652F /* People+CoreDataProperties.m */,
 			);
 			path = DataModel;
+			sourceTree = "<group>";
+		};
+		A849DB7F1DD0E4360073652F /* 详情 */ = {
+			isa = PBXGroup;
+			children = (
+				A849DB7C1DD0E42F0073652F /* DetailViewController.h */,
+				A849DB7D1DD0E42F0073652F /* DetailViewController.m */,
+				A849DB7A1DD0E3F80073652F /* DetailViewController.xib */,
+			);
+			name = "详情";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,6 +186,7 @@
 				A849DB621DD0DA8F0073652F /* LaunchScreen.storyboard in Resources */,
 				A849DB5F1DD0DA8F0073652F /* Assets.xcassets in Resources */,
 				A849DB5D1DD0DA8F0073652F /* Main.storyboard in Resources */,
+				A849DB7B1DD0E3F80073652F /* DetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -183,6 +200,7 @@
 				A849DB731DD0DF0F0073652F /* People+CoreDataProperties.m in Sources */,
 				A849DB5A1DD0DA8F0073652F /* ViewController.m in Sources */,
 				A849DB571DD0DA8F0073652F /* AppDelegate.m in Sources */,
+				A849DB7E1DD0E42F0073652F /* DetailViewController.m in Sources */,
 				A849DB761DD0DFA60073652F /* DBManager.m in Sources */,
 				A849DB791DD0E1A70073652F /* UIAlertController+Actions.m in Sources */,
 				A849DB541DD0DA8F0073652F /* main.m in Sources */,
