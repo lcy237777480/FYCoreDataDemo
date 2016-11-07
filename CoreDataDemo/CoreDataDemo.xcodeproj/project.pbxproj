@@ -14,6 +14,8 @@
 		A849DB5F1DD0DA8F0073652F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A849DB5E1DD0DA8F0073652F /* Assets.xcassets */; };
 		A849DB621DD0DA8F0073652F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A849DB601DD0DA8F0073652F /* LaunchScreen.storyboard */; };
 		A849DB6D1DD0DE560073652F /* Student.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A849DB6B1DD0DE560073652F /* Student.xcdatamodeld */; };
+		A849DB721DD0DF0F0073652F /* People+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A849DB6F1DD0DF0F0073652F /* People+CoreDataClass.m */; };
+		A849DB731DD0DF0F0073652F /* People+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A849DB711DD0DF0F0073652F /* People+CoreDataProperties.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,10 @@
 		A849DB611DD0DA8F0073652F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A849DB631DD0DA8F0073652F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A849DB6C1DD0DE560073652F /* Student.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Student.xcdatamodel; sourceTree = "<group>"; };
+		A849DB6E1DD0DF0F0073652F /* People+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "People+CoreDataClass.h"; sourceTree = "<group>"; };
+		A849DB6F1DD0DF0F0073652F /* People+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "People+CoreDataClass.m"; sourceTree = "<group>"; };
+		A849DB701DD0DF0F0073652F /* People+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "People+CoreDataProperties.h"; sourceTree = "<group>"; };
+		A849DB711DD0DF0F0073652F /* People+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "People+CoreDataProperties.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +92,10 @@
 		A849DB6A1DD0DD9C0073652F /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
+				A849DB6E1DD0DF0F0073652F /* People+CoreDataClass.h */,
+				A849DB6F1DD0DF0F0073652F /* People+CoreDataClass.m */,
+				A849DB701DD0DF0F0073652F /* People+CoreDataProperties.h */,
+				A849DB711DD0DF0F0073652F /* People+CoreDataProperties.m */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -161,7 +171,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A849DB731DD0DF0F0073652F /* People+CoreDataProperties.m in Sources */,
 				A849DB5A1DD0DA8F0073652F /* ViewController.m in Sources */,
+				A849DB721DD0DF0F0073652F /* People+CoreDataClass.m in Sources */,
 				A849DB571DD0DA8F0073652F /* AppDelegate.m in Sources */,
 				A849DB541DD0DA8F0073652F /* main.m in Sources */,
 				A849DB6D1DD0DE560073652F /* Student.xcdatamodeld in Sources */,
