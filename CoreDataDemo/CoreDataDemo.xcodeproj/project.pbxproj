@@ -14,7 +14,6 @@
 		A849DB5F1DD0DA8F0073652F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A849DB5E1DD0DA8F0073652F /* Assets.xcassets */; };
 		A849DB621DD0DA8F0073652F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A849DB601DD0DA8F0073652F /* LaunchScreen.storyboard */; };
 		A849DB6D1DD0DE560073652F /* Student.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A849DB6B1DD0DE560073652F /* Student.xcdatamodeld */; };
-		A849DB721DD0DF0F0073652F /* People+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A849DB6F1DD0DF0F0073652F /* People+CoreDataClass.m */; };
 		A849DB731DD0DF0F0073652F /* People+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A849DB711DD0DF0F0073652F /* People+CoreDataProperties.m */; };
 /* End PBXBuildFile section */
 
@@ -173,7 +172,6 @@
 			files = (
 				A849DB731DD0DF0F0073652F /* People+CoreDataProperties.m in Sources */,
 				A849DB5A1DD0DA8F0073652F /* ViewController.m in Sources */,
-				A849DB721DD0DF0F0073652F /* People+CoreDataClass.m in Sources */,
 				A849DB571DD0DA8F0073652F /* AppDelegate.m in Sources */,
 				A849DB541DD0DA8F0073652F /* main.m in Sources */,
 				A849DB6D1DD0DE560073652F /* Student.xcdatamodeld in Sources */,
