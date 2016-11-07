@@ -23,4 +23,12 @@
 
 // 删除
 -(void)deletePeopleWithUid:(NSString *)uid;
+
+// 更改
+-(void)updatePeople:(People *)people name:(NSString *)name age:(NSNumber *)age sex:(NSString *)sex;
+
+// 按性别筛选
+-(NSArray *)filterSex:(NSString *)sex;
+// 按年龄关键字排序
+-(NSArray *)sortWithAgeAcsend:(NSComparisonResult)compare;
 @end

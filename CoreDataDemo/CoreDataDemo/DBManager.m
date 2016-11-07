@@ -73,12 +73,42 @@
 
 
 
+// 更改
+-(void)updatePeople:(People *)people name:(NSString *)name age:(NSNumber *)age sex:(NSString *)sex{
+    if(![self isPeopleExist:people.uid]){
+        return;
+    }
+    NSFetchRequest *request=[NSFetchRequest fetchRequestWithEntityName:@"People"];
+    NSPredicate *pre=[NSPredicate predicateWithFormat:@"uid=%@",people.uid];
+    request.predicate=pre;
+    People *result=[[_ctxt executeFetchRequest:request error:nil] firstObject];
+    result.name=name;
+    result.sex=sex;
+    result.age=age.intValue;
+    
+    [_ctxt save:nil];
+}
 
 
 
-
-
-
+-(NSArray *)filterSex:(NSString *)sex{
+    
+    NSFetchRequest *request=[[NSFetchRequest alloc]initWithEntityName:@"People"];
+    if(sex){
+        NSPredicate *pre=[NSPredicate predicateWithFormat:@"sex=%@",sex];
+        request.predicate=pre;
+    }
+    return [_ctxt executeFetchRequest:request error:nil];
+}
+-(NSArray *)sortWithAgeAcsend:(NSComparisonResult)compare{
+    NSFetchRequest *request=[[NSFetchRequest alloc]initWithEntityName:@"People"];
+    BOOL acsend=(compare==NSOrderedAscending);
+    if(compare!=NSOrderedSame){
+        NSSortDescriptor *sort=[NSSortDescriptor sortDescriptorWithKey:@"age" ascending:acsend];
+        request.sortDescriptors=@[sort];
+    }
+    return [_ctxt executeFetchRequest:request error:nil];
+}
 
 
 

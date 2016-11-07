@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import "DBManager.h"
 #import "UIAlertController+Actions.h"
-
+#import "DetailViewController.h"
 #define kWidth              [UIScreen mainScreen].bounds.size.width
 #define kHeight             [UIScreen mainScreen].bounds.size.height
 
@@ -34,6 +34,12 @@ static NSString *reuseCellID = @"reuseCellID";
         [wkSelf.tbView reloadData];
     }];
     return @[deleteAction];
+}
+// 改
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    DetailViewController *detail=[DetailViewController new];
+    detail.model=[self.dataArray objectAtIndex:indexPath.row];
+    [self.navigationController pushViewController:detail animated:YES];
 }
 -(NSString *)descMsg{
     
