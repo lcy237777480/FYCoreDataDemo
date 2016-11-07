@@ -18,14 +18,15 @@
 // 增加数据
 -(void)insert:(NSString *)name sex:(NSString *)sex age:(NSNumber *)age uid:(NSString *)uid;
 
-// 排序和筛选
--(NSArray *)fiterSex:(NSString *)sex ageAcsending:(NSComparisonResult)compare;
-
 // 删除
 -(void)deletePeopleWithUid:(NSString *)uid;
 
 // 更改
 -(void)updatePeople:(People *)people name:(NSString *)name age:(NSNumber *)age sex:(NSString *)sex;
+
+// 排序和筛选
+-(NSArray *)fiterSex:(NSString *)sex ageAcsending:(NSComparisonResult)compare;
+
 
 // 按性别筛选
 -(NSArray *)filterSex:(NSString *)sex;
