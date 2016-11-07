@@ -7,7 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "People+CoreDataClass.h"
 @interface DBManager : NSObject
++(instancetype)shared;
 
+
+
+-(NSArray *)allPeople;
+-(People *)isPeopleExist:(NSString *)uid;
+// 增加数据
+-(void)insert:(NSString *)name sex:(NSString *)sex age:(NSNumber *)age uid:(NSString *)uid;
 @end

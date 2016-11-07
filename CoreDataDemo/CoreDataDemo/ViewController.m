@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-
+#import "DBManager.h"
 
 #define kWidth              [UIScreen mainScreen].bounds.size.width
 #define kHeight             [UIScreen mainScreen].bounds.size.height
@@ -30,6 +30,35 @@ static NSString *reuseCellID = @"reuseCellID";
 - (void)filterData{
     
 }
+// 创建数据
+-(void)createData
+{
+    if([[DBManager shared] allPeople].count==0){
+        NSArray *names=@[@"丁丁",@"峰峰",@"楠楠",@"雯雯",@"木木",
+                         @"葵葵",@"莎莎",@"蓉蓉",@"果果",@"胡微",
+                         @"龚悦",@"程海鹏",@"刘荣",@"田慧",@"肖扬",
+                         @"夏慧",@"邓伟强",@"周浩",@"周学富",@"戴文莲"];
+        NSArray *sexes=@[@"女",@"男",@"女",@"女",@"女",
+                         @"女",@"女",@"女",@"女",@"女",
+                         @"女",@"男",@"女",@"女",@"男",
+                         @"女",@"男",@"男",@"男",@"男",@"女"];
+        DBManager *mgr=[DBManager shared];
+        for(int i=0;i<20;i++){
+            NSString *name=names[i];
+            NSNumber *age=@(20+arc4random_uniform(5));
+            NSString *uid=@(2016100+i+1).stringValue;
+            NSString *sex=sexes[i];
+            NSLog(@"%@",age);
+            [mgr insert:name sex:sex age:age uid:uid];
+        }
+    }
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.dataArray=[NSMutableArray arrayWithArray:[[DBManager shared]allPeople]];
+    [self.tbView reloadData];
+}
 
 #pragma mark - dataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -40,10 +69,10 @@ static NSString *reuseCellID = @"reuseCellID";
     
     UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:reuseCellID];;
     
+    People *model=[self.dataArray objectAtIndex:indexPath.row];
     
-    
-    
-    cell.textLabel.text=[NSString stringWithFormat:@"%zd",indexPath.row];
+    cell.textLabel.text=[NSString stringWithFormat:@"%@ %zd岁 %@",model.name,model.age,model.sex];
+    cell.detailTextLabel.text=[NSString stringWithFormat:@"学号：%@",model.uid];
     
     return cell;
     
@@ -55,7 +84,8 @@ static NSString *reuseCellID = @"reuseCellID";
     [super viewDidLoad];
     [self setup];
     [self.view addSubview:self.tbView];
-    
+    // 创建数据
+    [self createData];
 }
 
 -(void)setup
