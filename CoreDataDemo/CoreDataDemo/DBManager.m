@@ -62,7 +62,14 @@
 }
 
 
-
+-(void)deletePeopleWithUid:(NSString *)uid{
+    People *people=[self isPeopleExist:uid];
+    if(!people){
+        return;
+    }
+    [_ctxt deleteObject:people];
+    [_ctxt save:nil];
+}
 
 
 

@@ -24,7 +24,17 @@ static NSString *reuseCellID = @"reuseCellID";
 @end
 
 @implementation ViewController
-
+#pragma mark - delegate   删除
+-(NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath{
+    __weak typeof(self) wkSelf=self;
+    UITableViewRowAction *deleteAction=[UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"删除" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
+        People *model=[wkSelf.dataArray objectAtIndex:indexPath.row];
+        [[DBManager shared]deletePeopleWithUid:model.uid];
+        [wkSelf.dataArray removeObject:model];
+        [wkSelf.tbView reloadData];
+    }];
+    return @[deleteAction];
+}
 -(NSString *)descMsg{
     
     NSString *sortString;
