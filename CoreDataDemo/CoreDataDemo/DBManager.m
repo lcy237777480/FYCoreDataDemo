@@ -46,7 +46,20 @@
 }
 
 
-
+-(NSArray *)fiterSex:(NSString *)sex ageAcsending:(NSComparisonResult)compare{
+    
+    NSFetchRequest *request=[[NSFetchRequest alloc]initWithEntityName:@"People"];
+    if(sex){
+        NSPredicate *pre=[NSPredicate predicateWithFormat:@"sex=%@",sex];
+        request.predicate=pre;
+    }
+    BOOL acsend=(compare==NSOrderedAscending);
+    if(compare!=NSOrderedSame){
+        NSSortDescriptor *sort=[NSSortDescriptor sortDescriptorWithKey:@"age" ascending:acsend];
+        request.sortDescriptors=@[sort];
+    }
+    return [_ctxt executeFetchRequest:request error:nil];
+}
 
 
 

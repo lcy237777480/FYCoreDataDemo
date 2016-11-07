@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "DBManager.h"
+#import "UIAlertController+Actions.h"
 
 #define kWidth              [UIScreen mainScreen].bounds.size.width
 #define kHeight             [UIScreen mainScreen].bounds.size.height
@@ -18,17 +19,79 @@ static NSString *reuseCellID = @"reuseCellID";
 @property(nonatomic,strong)UITableView          *tbView;
 @property(nonatomic,strong)NSMutableArray       *dataArray;
 
+@property(nonatomic,assign)NSComparisonResult   compare;
+@property(nonatomic,copy)NSString               *fiterSex;
 @end
 
 @implementation ViewController
 
+-(NSString *)descMsg{
+    
+    NSString *sortString;
+    if(self.compare==NSOrderedAscending)
+        sortString=@"年龄升序";
+    else if(self.compare==NSOrderedDescending)
+        sortString=@"年龄降序";
+    else
+        sortString=@"默认排序";
+    NSString *fiterString;
+    if([self.fiterSex isEqualToString:@"男"])
+        fiterString=@"只看男生";
+    else if([self.fiterSex isEqualToString:@"女"])
+        fiterString=@"只看女生";
+    else
+        fiterString=@"查看全部";
+    NSString *msg=[NSString stringWithFormat:@"排序方式：%@\n筛选条件：%@",sortString,fiterString];
+    return msg;
+}
 /*排序方法*/
 - (void)sortData{
+    UIAlertController *alert=[UIAlertController alertControllerWithTitle:@"排序" message:[self descMsg] preferredStyle:UIAlertControllerStyleAlert];
     
+    NSMutableArray *actions=[NSMutableArray array];
+    NSArray *titiles=@[@"年龄升序",@"年龄降序",@"默认排序"];
+    __weak typeof(self) wkSelf=self;
+    for(int i=0;i<3;i++){
+        
+        UIAlertAction *action=[UIAlertAction actionWithTitle:titiles[i] style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            if(i==0)
+                wkSelf.compare=NSOrderedAscending;
+            else if(i==1)
+                wkSelf.compare=NSOrderedDescending;
+            else
+                wkSelf.compare=NSOrderedSame;
+            wkSelf.dataArray=[NSMutableArray arrayWithArray:[[DBManager shared]fiterSex:wkSelf.fiterSex ageAcsending:wkSelf.compare]];
+            [wkSelf.tbView reloadData];
+        }];
+        [actions addObject:action];
+    }
+    [alert addActions:actions];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 /*筛选方法 */
 - (void)filterData{
+    UIAlertController *alert=[UIAlertController alertControllerWithTitle:@"筛选" message:[self descMsg] preferredStyle:UIAlertControllerStyleAlert];
     
+    NSMutableArray *actions=[NSMutableArray array];
+    NSArray *titiles=@[@"只看男生",@"只看女生",@"查看全部"];
+    __weak typeof(self) wkSelf=self;
+    for(int i=0;i<3;i++){
+        
+        UIAlertAction *action=[UIAlertAction actionWithTitle:titiles[i] style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            if(i==0)
+                wkSelf.fiterSex=@"男";
+            else if(i==1)
+                wkSelf.fiterSex=@"女";
+            else
+                wkSelf.fiterSex=nil;
+            wkSelf.dataArray=[NSMutableArray arrayWithArray:[[DBManager shared]fiterSex:wkSelf.fiterSex ageAcsending:wkSelf.compare]];
+            [wkSelf.tbView reloadData];
+        }];
+        [actions addObject:action];
+    }
+    [alert addActions:actions];
+    [self presentViewController:alert animated:YES completion:nil];
+
 }
 // 创建数据
 -(void)createData
@@ -105,6 +168,8 @@ static NSString *reuseCellID = @"reuseCellID";
     [fiterBtn addTarget:self action:@selector(filterData) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithCustomView:fiterBtn];
     
+    self.fiterSex=nil;
+    self.compare=NSOrderedSame;
 }
 
 -(UITableView *)tbView

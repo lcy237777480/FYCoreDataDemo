@@ -17,4 +17,8 @@
 -(People *)isPeopleExist:(NSString *)uid;
 // 增加数据
 -(void)insert:(NSString *)name sex:(NSString *)sex age:(NSNumber *)age uid:(NSString *)uid;
+
+
+-(NSArray *)fiterSex:(NSString *)sex ageAcsending:(NSComparisonResult)compare;
+
 @end
