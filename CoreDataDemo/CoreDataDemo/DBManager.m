@@ -12,12 +12,15 @@
 @end
 @implementation DBManager
 
+#pragma mark - 数据库操作阶段
+// 添加初始数据
 -(NSArray *)allPeople{
     
     NSFetchRequest *request=[NSFetchRequest fetchRequestWithEntityName:@"People"];
     return [_ctxt executeFetchRequest:request error:nil];
     
 }
+// 删除和更改时 做的判断
 -(People *)isPeopleExist:(NSString *)uid{
     
     NSFetchRequest *request=[NSFetchRequest fetchRequestWithEntityName:@"People"];
@@ -30,6 +33,7 @@
     return nil;
     
 }
+// 增加数据
 -(void)insert:(NSString *)name sex:(NSString *)sex age:(NSNumber *)age uid:(NSString *)uid{
     if([self isPeopleExist:uid]){
         return;
@@ -45,7 +49,7 @@
     
 }
 
-
+// 排序和筛选
 -(NSArray *)fiterSex:(NSString *)sex ageAcsending:(NSComparisonResult)compare{
     
     NSFetchRequest *request=[[NSFetchRequest alloc]initWithEntityName:@"People"];
@@ -61,7 +65,7 @@
     return [_ctxt executeFetchRequest:request error:nil];
 }
 
-
+// 删除
 -(void)deletePeopleWithUid:(NSString *)uid{
     People *people=[self isPeopleExist:uid];
     if(!people){
@@ -90,7 +94,7 @@
 }
 
 
-
+// 按性别筛选
 -(NSArray *)filterSex:(NSString *)sex{
     
     NSFetchRequest *request=[[NSFetchRequest alloc]initWithEntityName:@"People"];
@@ -100,6 +104,7 @@
     }
     return [_ctxt executeFetchRequest:request error:nil];
 }
+// 按年龄关键字排序
 -(NSArray *)sortWithAgeAcsend:(NSComparisonResult)compare{
     NSFetchRequest *request=[[NSFetchRequest alloc]initWithEntityName:@"People"];
     BOOL acsend=(compare==NSOrderedAscending);
@@ -115,7 +120,7 @@
 
 
 
-
+#pragma mark - 初始化阶段
 +(instancetype)shared{
     static DBManager*manager;
     static dispatch_once_t onceToken;
