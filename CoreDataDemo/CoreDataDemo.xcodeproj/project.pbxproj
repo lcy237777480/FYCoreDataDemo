@@ -15,6 +15,7 @@
 		A849DB621DD0DA8F0073652F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A849DB601DD0DA8F0073652F /* LaunchScreen.storyboard */; };
 		A849DB6D1DD0DE560073652F /* Student.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A849DB6B1DD0DE560073652F /* Student.xcdatamodeld */; };
 		A849DB731DD0DF0F0073652F /* People+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A849DB711DD0DF0F0073652F /* People+CoreDataProperties.m */; };
+		A849DB761DD0DFA60073652F /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A849DB751DD0DFA60073652F /* DBManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,8 @@
 		A849DB6F1DD0DF0F0073652F /* People+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "People+CoreDataClass.m"; sourceTree = "<group>"; };
 		A849DB701DD0DF0F0073652F /* People+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "People+CoreDataProperties.h"; sourceTree = "<group>"; };
 		A849DB711DD0DF0F0073652F /* People+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "People+CoreDataProperties.m"; sourceTree = "<group>"; };
+		A849DB741DD0DFA60073652F /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
+		A849DB751DD0DFA60073652F /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +73,8 @@
 				A849DB6B1DD0DE560073652F /* Student.xcdatamodeld */,
 				A849DB581DD0DA8F0073652F /* ViewController.h */,
 				A849DB591DD0DA8F0073652F /* ViewController.m */,
+				A849DB741DD0DFA60073652F /* DBManager.h */,
+				A849DB751DD0DFA60073652F /* DBManager.m */,
 				A849DB6A1DD0DD9C0073652F /* DataModel */,
 				A849DB5B1DD0DA8F0073652F /* Main.storyboard */,
 				A849DB5E1DD0DA8F0073652F /* Assets.xcassets */,
@@ -173,6 +178,7 @@
 				A849DB731DD0DF0F0073652F /* People+CoreDataProperties.m in Sources */,
 				A849DB5A1DD0DA8F0073652F /* ViewController.m in Sources */,
 				A849DB571DD0DA8F0073652F /* AppDelegate.m in Sources */,
+				A849DB761DD0DFA60073652F /* DBManager.m in Sources */,
 				A849DB541DD0DA8F0073652F /* main.m in Sources */,
 				A849DB6D1DD0DE560073652F /* Student.xcdatamodeld in Sources */,
 			);
